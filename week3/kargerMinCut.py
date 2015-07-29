@@ -51,7 +51,16 @@ def kargerMinCut(ad_list):
         #print ad_list
         return [len(ad_list[0])-1]#, len(ad_list[1])-1]
      
-     
+def getAdList(infile):
+    newlist = []
+    alist = infile.readlines()
+    for line in alist:
+        print line
+        newline = line.split('\t')
+        newline = [int(x) for x in newline[:-1]]
+        newlist.append(newline)
+    return newlist  
+
 def main():
     infile = open("./kargerMinCut.txt")
     alist = infile.readlines()
@@ -69,11 +78,14 @@ def main():
     test_alist = [[1, 2, 3, 4], [2, 1, 3, 4], [3, 1, 2, 4], [4, 1, 2, 3]]
     #kk = kargerMinCut(newlist)
     kk = []
-    iterations = 1000
+    iterations = 20000
     for i in range(iterations):
-        print "%d out of %d" %(i, iterations)
+        if i%100 == 0:
+            print "%d out of %d" %(i, iterations)
         #tmplist = copy.deepcopy(test_alist)
-        tmplist = copy.deepcopy(newlist)
+        #tmplist = copy.deepcopy(newlist)
+        tmplist = [x[:] for x in newlist]
+        #print tmplist
         #print (tmplist, test_alist) 
         kk.append(kargerMinCut(tmplist))
   
