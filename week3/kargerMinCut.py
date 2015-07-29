@@ -69,7 +69,7 @@ def main():
     test_alist = [[1, 2, 3, 4], [2, 1, 3, 4], [3, 1, 2, 4], [4, 1, 2, 3]]
     #kk = kargerMinCut(newlist)
     kk = []
-    iterations = 1000
+    iterations = 40000
     for i in range(iterations):
         print "%d out of %d" %(i, iterations)
         #tmplist = copy.deepcopy(test_alist)
